@@ -16,11 +16,14 @@ TEMPLATE = app
 SOURCES += main.cpp\
         mainwidget.cpp \
     qexcelobject.cpp \
-    naming.cpp
+    naming.cpp \
+    classnames.cpp
 
 HEADERS  += mainwidget.h \
     qexcelobject.h \
-    naming.h
+    naming.h \
+    types.h \
+    classnames.h
 
 FORMS    += mainwidget.ui \
     naming.ui
