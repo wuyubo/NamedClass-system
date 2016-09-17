@@ -17,13 +17,17 @@ SOURCES += main.cpp\
         mainwidget.cpp \
     naming.cpp \
     classnames.cpp \
-    excel/qexcel.cpp
+    excel/qexcel.cpp \
+    Students/qstudent.cpp \
+    Students/qstudentlist.cpp
 
 HEADERS  += mainwidget.h \
     naming.h \
-    types.h \
     classnames.h \
-    excel/qexcel.h
+    excel/qexcel.h \
+    Students/qstudent.h \
+    Datatype/types.h \
+    Students/qstudentlist.h
 
 FORMS    += mainwidget.ui \
     naming.ui
