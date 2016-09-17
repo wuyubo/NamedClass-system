@@ -15,15 +15,15 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwidget.cpp \
-    qexcelobject.cpp \
     naming.cpp \
-    classnames.cpp
+    classnames.cpp \
+    excel/qexcel.cpp
 
 HEADERS  += mainwidget.h \
-    qexcelobject.h \
     naming.h \
     types.h \
-    classnames.h
+    classnames.h \
+    excel/qexcel.h
 
 FORMS    += mainwidget.ui \
     naming.ui

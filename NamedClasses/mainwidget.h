@@ -2,7 +2,6 @@
 #define MAINWIDGET_H
 
 #include <QWidget>
-#include "qexcelobject.h"
 #include "naming.h"
 
 
