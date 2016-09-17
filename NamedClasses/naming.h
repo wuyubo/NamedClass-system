@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include "classnames.h"
+#include <Students/qstudentlist.h>
 
 namespace Ui {
 class Naming;
@@ -13,7 +14,7 @@ class Naming : public QWidget
     Q_OBJECT
 
 public:
-    explicit Naming(QWidget *parent = 0);
+    explicit Naming(QStudentList *stulist, QWidget *parent = 0);
     ~Naming();
 
 
@@ -27,6 +28,7 @@ private slots:
 private:
     Ui::Naming *ui;
     ClassNames *names;
+    QStudentList *m_stu_list;
 };
 
 #endif // NAMING_H

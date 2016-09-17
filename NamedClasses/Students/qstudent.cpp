@@ -5,11 +5,18 @@
 
 #include "qstudent.h"
 
-QMap<QString, int> QStudent::stc_index_map;
-
-QStudent::QStudent(QObject *parent)
+QStudent::QStudent(QObject *parent):
+    QObject(parent)
 {
     m_status = NORMAL;
+}
+QStudent::QStudent(const QStudent &stu)
+{
+     m_grade = stu.m_grade;
+     m_stu_ID = stu.m_stu_ID;
+     m_name = stu.m_name;
+     m_index = stu.m_index;
+     m_status = stu.m_status;
 }
 
 QStudent::~QStudent()
@@ -41,16 +48,28 @@ STATUS & QStudent::status()
 {
     return m_status;
 }
-
-void QStudent::setIndexMap(int g_idx, int id_idx, int n_idx, int c_idx)
+void QStudent::setgrade(QString g)
 {
-    stc_index_map[M_GRADE] = g_idx;
-    stc_index_map[M_NUMBER] = id_idx;
-    stc_index_map[M_NAME] = n_idx;
-    stc_index_map[M_CLASS] = c_idx;
+    m_grade = g;
 }
 
-int QStudent::getMapIndex(MAP_NAME name)
+void QStudent::setstuId(QString id)
 {
-    return stc_index_map[name];
+    m_stu_ID = id;
 }
+
+void QStudent::setname(QString n)
+{
+    m_name = n;
+}
+
+void QStudent::setindex(int idx)
+{
+    m_index = idx;
+}
+
+void QStudent::setstatus(STATUS state)
+{
+    m_status = state;
+}
+

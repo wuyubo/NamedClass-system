@@ -3,7 +3,7 @@
 
 #include <QWidget>
 #include "naming.h"
-
+#include <Students/qstudentlist.h>
 
 namespace Ui {
 class MainWidget;
@@ -24,8 +24,8 @@ private slots:
 
 private:
     Ui::MainWidget *ui;
-    QExcelObject *m_excel;
     Naming *nameWidget;
+    QStudentList *stu_list;
 };
 
 #endif // MAINWIDGET_H

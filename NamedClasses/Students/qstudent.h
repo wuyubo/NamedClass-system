@@ -10,17 +10,22 @@ class QStudent : public QObject
 public:
     QStudent(QObject *parent = 0);
     ~QStudent();
+    QStudent(const QStudent &stu);
 public:
     QString & grade();
     QString & stuId();
     QString & name();
     int & index();
     STATUS & status();
-    static void setIndexMap(int g_idx, int id_idx, int n_idx, int c_idx);
-    static int getMapIndex(MAP_NAME name);
+    void setgrade(QString g);
+    void setstuId(QString id);
+    void setname(QString n);
+    void setindex(int idx);
+    void setstatus(STATUS state);
+
 
 private:
-    static QMap<int, int> stc_index_map;
+
     QString m_grade;
     QString m_stu_ID;
     QString m_name;

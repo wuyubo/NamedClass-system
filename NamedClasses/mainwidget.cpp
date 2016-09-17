@@ -8,12 +8,12 @@ MainWidget::MainWidget(QWidget *parent) :
     ui(new Ui::MainWidget)
 {
     ui->setupUi(this);
-    m_excel = new QExcelObject(this);
+    stu_list = new QStudentList(this);
 }
 
 MainWidget::~MainWidget()
 {
-    //delete m_excel;
+    delete stu_list;
     delete ui;
 }
 
@@ -25,15 +25,14 @@ void MainWidget::on_read_btn_clicked()
     {
      return;
     }
-    QExcel excel(strFile, this);
-    excel.selectSheet(1);
+    stu_list->inportFromExcel(strFile);
+
 //    excel.setCellString("A2", "EEE");
-//    m_excel->open(strFile);
-    ui->name_lb->setText(excel.getCellValue(2, 1).toString());
+    ui->name_lb->setText(stu_list->getStudent()->name());
 }
 
 void MainWidget::on_begin_btn_clicked()
 {
-    nameWidget = new Naming();
+    nameWidget = new Naming(stu_list);
     nameWidget->show();
 }
