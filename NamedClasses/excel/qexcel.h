@@ -25,7 +25,7 @@ public:
     //range АэИз "A5:C7"
     QVariant getCellValue(int row, int column);
     QVariant getCellValue(const QString& cell);
-
+    int rowCounts();
     void save();
     void close();
 
@@ -36,6 +36,7 @@ private:
     QAxObject * workBook;
     QAxObject * sheets;
     QAxObject * sheet;
+    bool open_flag;
 };
 
 

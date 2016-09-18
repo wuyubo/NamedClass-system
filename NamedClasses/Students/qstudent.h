@@ -17,15 +17,8 @@ public:
     QString & name();
     int & index();
     STATUS & status();
-    void setgrade(QString g);
-    void setstuId(QString id);
-    void setname(QString n);
-    void setindex(int idx);
-    void setstatus(STATUS state);
-
 
 private:
-
     QString m_grade;
     QString m_stu_ID;
     QString m_name;

@@ -2,9 +2,11 @@
 #define TYPES_H
 
 enum STATUS{
-    NORMAL,
-    LATE,
-    ABSENCE,
+    S_NORMAL,
+    S_ARRIVE,
+    S_LATE,
+    S_ABSENCE,
+    S_REQUEST,
 };
 
 enum MAP_NAME{

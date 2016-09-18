@@ -8,7 +8,7 @@
 QStudent::QStudent(QObject *parent):
     QObject(parent)
 {
-    m_status = NORMAL;
+    m_status = S_NORMAL;
 }
 QStudent::QStudent(const QStudent &stu)
 {
@@ -48,28 +48,3 @@ STATUS & QStudent::status()
 {
     return m_status;
 }
-void QStudent::setgrade(QString g)
-{
-    m_grade = g;
-}
-
-void QStudent::setstuId(QString id)
-{
-    m_stu_ID = id;
-}
-
-void QStudent::setname(QString n)
-{
-    m_name = n;
-}
-
-void QStudent::setindex(int idx)
-{
-    m_index = idx;
-}
-
-void QStudent::setstatus(STATUS state)
-{
-    m_status = state;
-}
-

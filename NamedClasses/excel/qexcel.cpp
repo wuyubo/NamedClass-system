@@ -12,6 +12,7 @@ QExcel::QExcel(QString xlsFilePath, QObject *parent)
     workBook = 0;
     sheets = 0;
     sheet = 0;
+    open_flag = false;
 
     excel = new QAxObject("Excel.Application", parent);
     workBooks = excel->querySubObject("Workbooks");
@@ -21,7 +22,9 @@ QExcel::QExcel(QString xlsFilePath, QObject *parent)
         workBooks->dynamicCall("Open(const QString&)", xlsFilePath);
         workBook = excel->querySubObject("ActiveWorkBook");
         sheets = workBook->querySubObject("WorkSheets");
+        open_flag = true;
     }
+
 }
 
 QExcel::~QExcel()
@@ -31,6 +34,8 @@ QExcel::~QExcel()
 
 void QExcel::close()//have
 {
+    if(!open_flag) return;
+    workBook->dynamicCall("Close (Boolean)", false);
     excel->dynamicCall("Quit()");
 
     delete sheet;
@@ -44,6 +49,7 @@ void QExcel::close()//have
     workBook = 0;
     sheets = 0;
     sheet = 0;
+    open_flag = false;
 }
 
 
@@ -62,10 +68,19 @@ void QExcel::setCellString(int row, int column, const QString& value)//have
     range->dynamicCall("SetValue(const QString&)", value);
 }
 
+int QExcel::rowCounts()
+{
+    QAxObject * usedrange = sheet->querySubObject("UsedRange");//获取该sheet的使用范围对象
+    QAxObject * rows = usedrange->querySubObject("Rows");
+    return rows->property("Count").toInt();
+}
 
 void QExcel::save()//have
 {
+    if(!open_flag) return;
+    excel->setProperty("DisplayAlerts", 0);
     workBook->dynamicCall("Save()");
+    excel->setProperty("DisplayAlerts", 1);
 }
 
 void QExcel::setCellString(const QString& cell, const QString& value)//have

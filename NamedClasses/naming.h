@@ -16,7 +16,7 @@ class Naming : public QWidget
 public:
     explicit Naming(QStudentList *stulist, QWidget *parent = 0);
     ~Naming();
-
+    void showInfo();
 
 private slots:
     void on_back_btn_clicked();
@@ -24,6 +24,13 @@ private slots:
     void on_last_btn_clicked();
 
     void on_next_btn_clicked();
+
+    void on_absence_btn_clicked();
+
+    void on_late_btn_clicked();
+
+    void on_leave_btn_clicked();
+
 
 private:
     Ui::Naming *ui;
